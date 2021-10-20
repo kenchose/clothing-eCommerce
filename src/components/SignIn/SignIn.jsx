@@ -5,7 +5,7 @@ import "./SignIn.scss";
 class SignIn extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { name: "", email: "" };
+		this.state = { email: "", password: "" };
 	}
 
 	handleSubmit = (e) => {
@@ -15,8 +15,8 @@ class SignIn extends React.Component {
 	};
 
 	handleChange = (e) => {
+		console.log(e.target.type);
 		const { name, value } = e.target;
-		console.log(this.state.name);
 		this.setState({ [name]: value });
 	};
 
