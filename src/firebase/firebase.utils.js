@@ -3,13 +3,38 @@ import "firebase/compat/firestore";
 import "firebase/compat/auth";
 
 const config = {
-	apiKey: "AIzaSyBSpeeUepO1MNQDWD24RTO-1FZ0Cb2U9I4",
-	authDomain: "crown-db-47019.firebaseapp.com",
-	projectId: "crown-db-47019",
-	storageBucket: "crown-db-47019.appspot.com",
-	messagingSenderId: "257206084453",
-	appId: "1:257206084453:web:b4fa8c77aab4b2338fb78c",
-	measurementId: "G-483V0TYX7L",
+	apiKey: "AIzaSyBdYl6dkV53hrPvHYGGTxdAigcWL5bdKug",
+	authDomain: "crown-db-88933.firebaseapp.com",
+	projectId: "crown-db-88933",
+	storageBucket: "crown-db-88933.appspot.com",
+	messagingSenderId: "955337951449",
+	appId: "1:955337951449:web:b76e39972f3b5dec4896c8",
+	measurementId: "G-FPY6WJN1PE",
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+	if (!userAuth) return;
+
+	const userRef = firestore.doc(`/users/${userAuth.uid}`);
+	const snapshot = await userRef.get();
+
+	if (!snapshot.exists) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+
+		try {
+			await userRef.set({
+				displayName,
+				email,
+				createdAt,
+				...additionalData,
+			});
+		} catch (err) {
+			console.log("Error creating new document", err.message);
+		}
+	}
+
+	return userRef;
 };
 
 firebase.initializeApp(config);
