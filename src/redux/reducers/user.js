@@ -1,4 +1,4 @@
-import * as actions from "../actions/action.types"; // no longer need to add each indiviual const and instead use *
+import * as actions from "../actions/actions.types"; // no longer need to add each indiviual const and instead use *
 
 const INITIAL_STATE = {
 	currentUser: null,

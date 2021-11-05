@@ -1,4 +1,4 @@
-import * as actions from "./action.types";
+import * as actions from "./actions.types";
 
 // user action
 const setCurrentUser = (user) => ({
