@@ -7,9 +7,7 @@ const CollectionPreview = ({ title, items }) => {
 	const itemPreview = () => {
 		return items
 			.slice(0, 4)
-			.map(({ id, ...otherItemProps }) => (
-				<CollectionItem key={id} {...otherItemProps} />
-			));
+			.map((item) => <CollectionItem key={item.id} item={item} />);
 	};
 
 	return (
