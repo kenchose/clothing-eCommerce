@@ -4,16 +4,14 @@ import "./CollectionPreview.styles.scss";
 import CollectionItem from "../CollectionItem/CollectionItem.components";
 
 const CollectionPreview = ({ title, items }) => {
-	const itemPreview = () => {
-		return items
-			.slice(0, 4)
-			.map((item) => <CollectionItem key={item.id} item={item} />);
-	};
+	const itemPreview = items
+		.slice(0, 4)
+		.map((item) => <CollectionItem key={item.id} item={item} />);
 
 	return (
 		<div className="collection-preview">
 			<h1 className="title">{title.toUpperCase()}</h1>
-			<div className="preview">{itemPreview()}</div>
+			<div className="preview">{itemPreview}</div>
 		</div>
 	);
 };
