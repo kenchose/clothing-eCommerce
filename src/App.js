@@ -10,7 +10,7 @@ import HomePage from "./pages/Home/Home.component";
 import ShopPage from "./pages/Shop/Shop.component";
 import Header from "./components/Header/Header.component";
 import SignInAndOut from "./pages/SignInAndOut/SignInAndOut.component";
-import CheckoutPage from "./pages/Checkout/CheckoutPage.component";
+import CheckoutPage from "./pages/Checkout/Checkout.component";
 
 import {
 	auth,
