@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "../src/redux/users/user.selectors";
+import { selectCurrentUser } from "./redux/selectors/user.selectors";
 
 import "./App.css";
 
