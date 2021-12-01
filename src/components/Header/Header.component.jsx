@@ -8,7 +8,7 @@ import { selectCurrentUser } from "../../redux/selectors/user.selectors";
 import { selectCartHidden } from "../../redux/selectors/cart.selectors";
 
 import CartIcon from "../CartIcon/CartIcon.component";
-import CartDropdown from "../CartDropwdown/CartDropwdown.component";
+import CartDropdown from "../CartDropwdown/CartDropdown.component";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./Header.styles.scss";
