@@ -1,7 +1,8 @@
 import React from "react";
 
-import "./CollectionPreview.styles.scss";
 import CollectionItem from "../CollectionItem/CollectionItem.components";
+
+import * as sc from "./CollectionPreview.styles";
 
 const CollectionPreview = ({ title, items }) => {
 	const itemPreview = items
@@ -9,10 +10,10 @@ const CollectionPreview = ({ title, items }) => {
 		.map((item) => <CollectionItem key={item.id} item={item} />);
 
 	return (
-		<div className="collection-preview">
-			<h1 className="title">{title.toUpperCase()}</h1>
-			<div className="preview">{itemPreview}</div>
-		</div>
+		<sc.CollectionPreviewContainer>
+			<sc.TitleContainer>{title.toUpperCase()}</sc.TitleContainer>
+			<sc.PreviewContainer>{itemPreview}</sc.PreviewContainer>
+		</sc.CollectionPreviewContainer>
 	);
 };
 

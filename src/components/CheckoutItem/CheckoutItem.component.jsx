@@ -7,7 +7,7 @@ import {
 	addItem,
 } from "../../redux/actions/cart.actions";
 
-import "./CheckoutItem.styles.scss";
+import * as sc from "./CheckoutItem.styles";
 
 const CheckoutItem = ({
 	cartItem,
@@ -17,12 +17,12 @@ const CheckoutItem = ({
 }) => {
 	const { name, quantity, price, imageUrl } = cartItem;
 	return (
-		<div className="checkout-item">
-			<div className="image-container">
+		<sc.CheckoutItemContainer>
+			<sc.ImageContainer>
 				<img src={imageUrl} alt="item" />
-			</div>
-			<span className="name">{name}</span>
-			<span className="quantity">
+			</sc.ImageContainer>
+			<sc.TextContainer>{name}</sc.TextContainer>
+			<sc.QuantityContainer>
 				<div className="arrow" onClick={() => removeItem(cartItem.id)}>
 					&#10094;
 				</div>
@@ -30,14 +30,12 @@ const CheckoutItem = ({
 				<div className="arrow" onClick={() => addItem(cartItem)}>
 					&#10095;
 				</div>
-			</span>
-			<span className="price">${price}</span>
-			<div
-				className="remove-button"
-				onClick={() => clearItemsFromCart(cartItem.id)}>
+			</sc.QuantityContainer>
+			<sc.TextContainer>${price}</sc.TextContainer>
+			<sc.RemoveButtonContainer onClick={() => clearItemsFromCart(cartItem.id)}>
 				&#10005;
-			</div>
-		</div>
+			</sc.RemoveButtonContainer>
+		</sc.CheckoutItemContainer>
 	);
 };
 

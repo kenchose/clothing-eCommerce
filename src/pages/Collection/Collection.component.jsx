@@ -5,7 +5,7 @@ import { selectCollection } from "../../redux/selectors/shop.selectors";
 
 import CollectionItem from "../../components/CollectionItem/CollectionItem.components";
 
-import "./Collection.styles.scss";
+import * as sc from "./Collection.styles";
 
 const Collection = ({ collection }) => {
 	const { title, items } = collection;
@@ -15,15 +15,15 @@ const Collection = ({ collection }) => {
 	});
 
 	return (
-		<div className="collection-page">
-			<h2 className="title">{title}</h2>
-			<div className="items">{collectionItems}</div>
-		</div>
+		<sc.CollectionPageContainer>
+			<sc.TitleContainer>{title}</sc.TitleContainer>
+			<sc.ItemsContainer>{collectionItems}</sc.ItemsContainer>
+		</sc.CollectionPageContainer>
 	);
 };
 
 const mapStateToProps = (state, ownProps) => ({
-	collection: selectCollection(ownProps.match.params.urlParams)(state),
+	collection: selectCollection(ownProps.match.params.category)(state),
 });
 
 export default connect(mapStateToProps)(Collection);

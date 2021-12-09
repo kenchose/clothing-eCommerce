@@ -12,9 +12,9 @@ export const selectCollectionsForPreview = createSelector(
 	(collections) => Object.values(collections)
 );
 
-export const selectCollection = (urlParams) => {
+export const selectCollection = (category) => {
 	return createSelector(
 		[selectCollections],
-		(collections) => collections[urlParams]
+		(collections) => collections[category]
 	);
 };
