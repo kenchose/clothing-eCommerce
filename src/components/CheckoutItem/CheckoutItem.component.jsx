@@ -9,12 +9,7 @@ import {
 
 import * as sc from "./CheckoutItem.styles";
 
-const CheckoutItem = ({
-	cartItem,
-	clearItemsFromCart,
-	removeItem,
-	addItem,
-}) => {
+const CheckoutItem = ({ cartItem, clearItem, removeItem, addItem }) => {
 	const { name, quantity, price, imageUrl } = cartItem;
 	return (
 		<sc.CheckoutItemContainer>
@@ -32,13 +27,17 @@ const CheckoutItem = ({
 				</div>
 			</sc.QuantityContainer>
 			<sc.TextContainer>${price}</sc.TextContainer>
-			<sc.RemoveButtonContainer onClick={() => clearItemsFromCart(cartItem.id)}>
+			<sc.RemoveButtonContainer onClick={() => clearItem(cartItem.id)}>
 				&#10005;
 			</sc.RemoveButtonContainer>
 		</sc.CheckoutItemContainer>
 	);
 };
 
-export default connect(null, { clearItemsFromCart, removeItem, addItem })(
-	CheckoutItem
-);
+const mapDispatchToProps = (dispatch) => ({
+	clearItem: (item) => dispatch(clearItemsFromCart(item)),
+	addItem: (item) => dispatch(addItem(item)),
+	removeItem: (item) => dispatch(removeItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(CheckoutItem);
